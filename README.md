@@ -1,4 +1,9 @@
-For chating
-JavaSE-1.8
-MySql
-c3p0-0.9.2
+# 简单描述：
+用Java语言开发的，基于socket通信开发的聊天软件
+## 功能：
+* 单对单聊天
+* 群聊
+## 环境：
+* JavaSE-1.8
+* MySql
+* c3p0-0.9.2
