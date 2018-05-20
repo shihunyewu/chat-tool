@@ -52,6 +52,7 @@ public class LoginUI extends Thread {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * Create the application.
 	 */

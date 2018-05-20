@@ -38,8 +38,8 @@ public class ClientThread extends Thread {
 		// this.ui = ui;
 		this.username = username;
 		try {
-			client = new Socket("127.0.0.1", 1228);// 这里设置连接服务器端的IP的端口
-			println("连接服务器成功：端口1228");
+			client = new Socket("127.0.0.1", 9654);// 这里设置连接服务器端的IP的端口
+			println("连接服务器成功：端口9000");
 			// 初始化 读 对象
 			reader = new BufferedReader(new InputStreamReader(
 					client.getInputStream()));
@@ -47,7 +47,7 @@ public class ClientThread extends Thread {
 			writer = new PrintWriter(client.getOutputStream(), true);
 			// 如果为 true，则 println、printf 或 format 方法将刷新输出缓冲区
 		} catch (IOException e) {
-			println("连接服务器失败：端口1228");
+			println("连接服务器失败：端口9000");
 			println(e.toString());
 			e.printStackTrace();
 		}

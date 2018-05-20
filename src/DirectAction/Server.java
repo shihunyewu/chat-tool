@@ -24,9 +24,9 @@ public class Server extends Thread {
     public void run() {
         try {
 
-            ss = new ServerSocket(1228);
+            ss = new ServerSocket(9654);
             ui.clients=new ArrayList<Socket>();
-            println("启动服务器成功：端口1228");
+            println("启动服务器成功：端口9654");
             
             /**
              * 一直运行，持续接收客户端发送来的连接请求
