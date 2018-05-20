@@ -11,10 +11,17 @@
 * 安装数据库，执行 database.sql 文件
 * 运行 ServerUI.java
 * 运行 LoginUI.java
+
 ## 运行界面
+
 * 登录窗口
+
 ![登录窗口](img/loginPanel.PNG)
+
 * 用户窗口
+
 ![用户窗口](img/userPanel.PNG)
+
 * 服务器窗口
+
 ![服务器窗口](img/serverPanel.PNG)
