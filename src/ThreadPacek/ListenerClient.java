@@ -7,7 +7,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import FormUI.ServerUI;
-/*这个类是服务器端的等待客户端发送信息*/
+
+/**
+ * 服务器监听消息
+ * @author bupt632
+ *
+ */
 public class ListenerClient extends Thread {
 	
 	//每个监听客户端信息的 线程类，都有自己的 reader， wirter，client，要接收 ServerUI
@@ -67,7 +72,6 @@ public class ListenerClient extends Thread {
     }
 
     
-
     public void println(String s) {
         if (s != null) {
             this.ui.taShow.setText(this.ui.taShow.getText() + s + "\n");

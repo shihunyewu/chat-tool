@@ -52,19 +52,18 @@ public class ClientUI extends JFrame {
 		btSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// 调用 用户线程中的 发送信息线程
-				if(!tfSend.getText().equals("")){
-				server.sendMsg(dname + "￥" + sname + "￥" + tfSend.getText());
-				taShow.append(cd.getTime().substring(0, 19) + "\n" + sname
-						+ " : " + tfSend.getText() + "\n");
-				Chat chat = new Chat();
-				chat.setDname(dname);
-				chat.setSname(sname);
-				chat.setMessage(tfSend.getText());
-				cd.addChat(chat);
-				tfSend.setText("");}
-				else
+				if (!tfSend.getText().equals("")) {
+					server.sendMsg(dname + "￥" + sname + "￥" + tfSend.getText());
+					taShow.append(cd.getTime().substring(0, 19) + "\n" + sname + " : " + tfSend.getText() + "\n");
+					Chat chat = new Chat();
+					chat.setDname(dname);
+					chat.setSname(sname);
+					chat.setMessage(tfSend.getText());
+					cd.addChat(chat);
+					tfSend.setText("");
+				} else
 					JOptionPane.showMessageDialog(null, "发送的消息不能为空");
-					
+
 			}
 		});
 
@@ -73,7 +72,7 @@ public class ClientUI extends JFrame {
 				int code = e.getKeyCode();
 
 				if (code == 10) {
-						btSend.doClick();
+					btSend.doClick();
 				}
 			}
 		});
@@ -90,8 +89,7 @@ public class ClientUI extends JFrame {
 		});
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示",
-						JOptionPane.YES_NO_OPTION);
+				int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示", JOptionPane.YES_NO_OPTION);
 				if (a == 0) {
 					if (dname.equals("chat together")) {
 						ClientThread.uiss = null;
@@ -100,10 +98,8 @@ public class ClientUI extends JFrame {
 							Log.writeLog("源用户：" + sname + "; 目标用户：" + dname);
 							if (ClientThread.uis.size() > 0)
 								for (ClientUI cui : ClientThread.uis) {
-									if (sname.equals(cui.sname)
-											&& dname.equals(cui.dname)) {
-										Log.writeLog(ClientThread.uis
-												.remove(cui) + "");
+									if (sname.equals(cui.sname) && dname.equals(cui.dname)) {
+										Log.writeLog(ClientThread.uis.remove(cui) + "");
 									}
 								}
 						} catch (java.util.ConcurrentModificationException e1) {

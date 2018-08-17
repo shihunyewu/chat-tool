@@ -19,12 +19,11 @@ import javax.swing.JTextField;
 
 import Dao.UserDao;
 import DirectAction.Server;
-/*这个类是服务器端的UI*/
-public class ServerUI extends JFrame {
-    public static void main(String[] args) {
-        ServerUI serverUI = new ServerUI();
-    }
 
+/*
+ * 服务器 UI
+ */
+public class ServerUI extends JFrame {
     public JButton btStart;//启动服务器
     public JButton btSend;//发送信息按钮
     public JTextField tfSend;//需要发送的文本信息
@@ -77,6 +76,12 @@ public class ServerUI extends JFrame {
         this.setSize(400, 300);
         this.setLocation(100, 200);
         this.setVisible(true);
+    }
+    
+    
+	public static void main(String[] args) {
+        ServerUI serverUI = new ServerUI();
+        serverUI.setVisible(true);
     }
 }
 

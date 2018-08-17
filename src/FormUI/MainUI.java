@@ -25,25 +25,6 @@ public class MainUI {
 	private OnlineThread otd;
 	private ClientThread server;
 
-	/**
-	 * Launch the application.
-	 */
-	// public static void main(String[] args) {
-	// EventQueue.invokeLater(new Runnable() {
-	// public void run() {
-	// try {
-	// MianUI window = new MianUI();
-	// window.frame.setVisible(true);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// });
-	// }
-
-	/**
-	 * Create the application.
-	 */
 	public MainUI(String username) {
 		this.username = username;
 		otd = new OnlineThread(this);
@@ -53,7 +34,6 @@ public class MainUI {
 		server.start();
 		server.sendMsg(username + "已经成功连接");
 		initialize();
-
 	}
 
 	/**
@@ -75,7 +55,7 @@ public class MainUI {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				String dname = list.getSelectedItem();
-				if (dname!= null) {
+				if (dname != null) {
 					if (dname.equals(username + "(我)"))
 						JOptionPane.showMessageDialog(null, "您不可以和自己聊天");
 					else {
@@ -87,14 +67,13 @@ public class MainUI {
 						} else {
 							boolean flag = true;
 							for (ClientUI ui : ClientThread.uis) {
-								if (ui.dname.equals(dname)&&ui.sname.equals(username)) {
+								if (ui.dname.equals(dname) && ui.sname.equals(username)) {
 									flag = false;
-									ui.show(true);
+									ui.setVisible(true);
 								}
 							}
 							if (flag) {
-								ClientUI ui = new ClientUI(username, list
-										.getSelectedItem(), server);
+								ClientUI ui = new ClientUI(username, list.getSelectedItem(), server);
 								ClientThread.uis.add(ui);
 								ui.setVisible(true);
 							}
@@ -110,7 +89,7 @@ public class MainUI {
 			public void actionPerformed(ActionEvent arg0) {
 
 				String dname = list.getSelectedItem();
-				if (dname!= null) {
+				if (dname != null) {
 					if (dname.equals(username + "(我)"))
 						JOptionPane.showMessageDialog(null, "您不可以和自己聊天");
 					else {
@@ -122,14 +101,13 @@ public class MainUI {
 						} else {
 							boolean flag = true;
 							for (ClientUI ui : ClientThread.uis) {
-								if (ui.dname.equals(dname)&&ui.sname.equals(username)) {
+								if (ui.dname.equals(dname) && ui.sname.equals(username)) {
 									flag = false;
-									ui.show(true);
+									ui.setVisible(true);
 								}
 							}
 							if (flag) {
-								ClientUI ui = new ClientUI(username, list
-										.getSelectedItem(), server);
+								ClientUI ui = new ClientUI(username, list.getSelectedItem(), server);
 								ClientThread.uis.add(ui);
 								ui.setVisible(true);
 							}
@@ -144,15 +122,13 @@ public class MainUI {
 
 		this.frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示",
-						JOptionPane.YES_NO_OPTION);
+				int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示", JOptionPane.YES_NO_OPTION);
 				if (a == 0) {
-					
+
 					otd.ud.exit(username);
 					frame.dispose();
-				}else
-				{
-					
+				} else {
+
 				}
 			}
 		});
